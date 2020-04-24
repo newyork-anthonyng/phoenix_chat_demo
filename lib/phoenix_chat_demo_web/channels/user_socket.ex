@@ -3,6 +3,7 @@ defmodule PhoenixChatDemoWeb.UserSocket do
 
   ## Channels
   # channel "room:*", PhoenixChatDemoWeb.RoomChannel
+  channel "water_cooler:*", PhoenixChatDemoWeb.WaterCoolerChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
