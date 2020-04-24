@@ -1,6 +1,8 @@
 defmodule PhoenixChatDemoWeb.WaterCoolerChannel do
   use PhoenixChatDemoWeb, :channel
 
+  alias PhoenixChatDemo.Chats
+
   @impl true
   def join("water_cooler:lobby", payload, socket) do
     # if authorized?(payload) do
@@ -21,6 +23,7 @@ defmodule PhoenixChatDemoWeb.WaterCoolerChannel do
   # broadcast to everyone in the current topic (water_cooler:lobby).
   @impl true
   def handle_in("shout", payload, socket) do
+    Chats.create_message(payload)
     broadcast socket, "shout", payload
     {:noreply, socket}
   end
